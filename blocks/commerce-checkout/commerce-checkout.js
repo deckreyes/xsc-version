@@ -15,19 +15,13 @@ import { render as authProvider } from '@dropins/storefront-auth/render.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';
 
-// Adyen Dropin Modules
-import * as adyenApi from '@dropins/adyen-checkout-extension/api.js';
-import { render as adyenProvider } from '@dropins/adyen-checkout-extension/render.js';
-import AdyenPaymentMethod from '@dropins/adyen-checkout-extension/containers/AdyenPaymentMethod.js';
-
 import { createModal } from '../modal/modal.js';
 
 export default async function decorate(block) {
   let signInModal = null;
 
   // Initialize Dropins
-  initializers.register(checkoutApi.initialize, {});
-  initializers.register(adyenApi.initialize, {});
+  initializers.register(checkoutApi.initialize, {});  
 
   events.on(
     'authenticated',
@@ -74,16 +68,7 @@ export default async function decorate(block) {
             // $content.innerText = 'Custom Check / Money order handler';
             // ctx.appendHTMLElement($content);
           },
-        });
-        context.addPaymentMethodHandler('adyen_cc', {
-          render: (ctx, element) => {
-            if (element) {
-              // clear the element first
-              element.innerHTML = '';
-              adyenProvider.render(AdyenPaymentMethod, ctx)(element);
-            }
-          },
-        });
+        });      
       },
     },
   })(block);
