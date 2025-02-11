@@ -27,7 +27,7 @@ export default async function decorate(block) {
 
   // Initialize Dropins
   initializers.register(checkoutApi.initialize, {});
-  initializers.register(adyenApi.initialize, {});
+  //initializers.register(adyenApi.initialize, {});
 
   events.on(
     'authenticated',
