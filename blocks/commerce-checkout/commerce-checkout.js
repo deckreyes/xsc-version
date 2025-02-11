@@ -75,15 +75,6 @@ export default async function decorate(block) {
             // ctx.appendHTMLElement($content);
           },
         });
-        context.addPaymentMethodHandler('adyen_cc', {
-          render: (ctx, element) => {
-            if (element) {
-              // clear the element first
-              element.innerHTML = '';
-              adyenProvider.render(AdyenPaymentMethod, ctx)(element);
-            }
-          },
-        });
       },
     },
   })(block);
