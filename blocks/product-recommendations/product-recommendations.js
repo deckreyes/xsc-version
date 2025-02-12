@@ -69,12 +69,12 @@ function renderItem(unitId, product) {
       dl.push({ event: 'recs-item-click', eventInfo: { ...dl.getState(), unitId, productId: parseInt(product.externalId, 10) || 0 } });
     });
   };
-  const imageParent = "https://main--citisignal-doc--adobedevxsc.aem.page"
+
   const item = document.createRange().createContextualFragment(`<div class="product-grid-item">
     <a href="/products/${urlKey}/${product.sku.toLowerCase()}">
       <picture>
-        <source type="image/webp" srcset="${imageParent}/${image}?width=300&format=webply&optimize=medium" />
-        <img loading="lazy" alt="${product.name}" width="300" height="375" src="${imageParent}/${image}?width=300&format=jpg&optimize=medium" />
+        <source type="image/webp" srcset="${image}?width=300&format=webply&optimize=medium" />
+        <img loading="lazy" alt="${product.name}" width="300" height="375" src="${image}?width=300&format=jpg&optimize=medium" />
       </picture>
       <span>${product.name}</span>
     </a>
