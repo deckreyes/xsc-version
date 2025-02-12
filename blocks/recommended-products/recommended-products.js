@@ -12,7 +12,6 @@ export default async function decorate(block) {
   const initCards = records.data.slice(0, 8); // Grab the first 8 items in list
   const cards = [];
   let activeIndex = 0;
-  const imageParent = "https://main--citisignal-doc--adobedevxsc.aem.page"
   initCards.forEach((item, index) => {
     const pic = createOptimizedPicture(item.image, item.name, true, [{ width: '710' }]);
     pic.querySelector('img').width = '710';
@@ -20,7 +19,7 @@ export default async function decorate(block) {
     cards.push(jsx`
       <div class="slider-item ${index === activeIndex ? 'active' : ''}">
         <div class="slider-image">
-          <a href="${item.path}"><div class="image-wrapper">${imageParent}/${pic.outerHTML}</div></a>
+          <a href="${item.path}"><div class="image-wrapper">${pic.outerHTML}</div></a>
         </div>
         <div class="slider-text">
           <a href="${item.path}">${item.name}</a>
