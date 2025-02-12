@@ -176,7 +176,7 @@ export default async function decorate(block) {
     },
   };
   //fix image issue
-  const imageParent = "https://main--citisignal-doc--adobedevxsc.aem.page/"
+  const imageParent = "https://main--citisignal-doc--adobedevxsc.aem.page"
   const models = {
     ProductDetails: {
       initialData: { ...product },
